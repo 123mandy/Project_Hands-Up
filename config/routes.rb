@@ -8,4 +8,7 @@ get "/login" => "session#new"
 post "/login" => "session#create"
 delete "/login" => "session#destroy"
 
+get "/main" =>"pages#main"
+resources :posts, :only => [:new, :create, :destroy, :edit]
+
 end

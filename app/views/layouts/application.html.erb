@@ -20,31 +20,40 @@
            </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
            <ul class="navbar-nav">
+             <% if @current_user.present? %>
+             <li class="nav-item">
+                <%= link_to "Home", main_path, :class =>"nav-link" %>
+             </li>
+             <% else %>
              <li class="nav-item">
                 <%= link_to "Home", root_path, :class =>"nav-link" %>
              </li>
-             <li class="nav-item">
-                <%= link_to "Log-in", login_path, :class =>"nav-link" %>
-             </li>
-             <li class="nav-item">
-                <%= link_to "Sign-up", new_user_path, :class =>"nav-link" %>
-             </li>
-            
-             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown link
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                   <li><a class="dropdown-item" href="#">Action</a></li>
-                   <li><a class="dropdown-item" href="#">Another action</a></li>
-                   <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-             </li>
+             <% end %>
+             <% if @current_user.present? %>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                   Profile
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                     <li><a class="dropdown-item" href="#">Edit your profile</a></li>
+                     <li><a class="dropdown-item" href="#">Need help</a></li>
+                     <li><a class="dropdown-item" href="#">Edit posts</a></li>
+                  </ul>
+                </li>
+                <% else %>
+                <li class="nav-item">
+                   <%= link_to "Log-in", login_path, :class =>"nav-link" %>
+                </li>
+                <li class="nav-item">
+                   <%= link_to "Sign-up", new_user_path, :class =>"nav-link" %>
+                </li>
+               <% end %>
             
            </ul>
          </div>
        </div>
      </nav>
+     
     <%= yield %>
   </body>
 </html>
