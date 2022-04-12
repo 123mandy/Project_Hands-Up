@@ -30,14 +30,18 @@
              </li>
              <% end %>
              <% if @current_user.present? %>
+                 <li class="nav-item">
+                  <%= link_to "Log-out", login_path, :method => "delete", :class =>"nav-link" %>
+                </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                    Profile
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                     <li><a class="dropdown-item" href="#">Edit your profile</a></li>
-                     <li><a class="dropdown-item" href="#">Need help</a></li>
+                     <li><%= link_to "Your Profile", @current_user, :class => "dropdown-item" %></li>
+                     <li><%= link_to "Need Help", new_post_path, :class => "dropdown-item" %></li>
                      <li><a class="dropdown-item" href="#">Edit posts</a></li>
+                     <li><a class="dropdown-item" href="#">Edit comments</a></li>
                   </ul>
                 </li>
                 <% else %>
@@ -53,7 +57,6 @@
          </div>
        </div>
      </nav>
-     
     <%= yield %>
   </body>
 </html>

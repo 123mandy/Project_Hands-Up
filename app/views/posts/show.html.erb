@@ -1,0 +1,28 @@
+<div class="row content_main">
+    <div class="col-6 col-md-6">
+     <div class="single_post">
+       <h3><%= @post.title %></h3>
+       <p><%= @post.content %></p>
+       <p class="user_name_bottom"><%= @post.user.user_name %></p>
+    </div>
+       <% @post.comments.each do |comment| %>
+       <div class ="single_comment" >
+           <p><%= comment.comment %></p>
+           <p class="user_name_bottom"><%= comment.user.user_name %></p>
+       </div>
+       <% end %>
+     <%= form_for Comment.new do |f| %>
+     <%= f.text_field :comment %>
+     <%= f.hidden_field :post_id, :value => @post.id %>
+     <%= f.submit "Add Your Comment",:class => "link_button_small" %>
+             
+     <% end %>
+     
+    </div>
+    
+    <div class="col-6 col-md-6">
+        <div id="map">
+        </div>
+    </div>
+
+</div>
