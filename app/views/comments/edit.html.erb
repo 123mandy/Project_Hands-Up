@@ -1,12 +1,14 @@
 <div class ="post_content_div">
 <div class="center_div">
 <form action="" method = "post">
-   <label for=""><%= link_to @comment.post.title, @comment.post %> </label>
    
-   <label for="">Comment:</label>
-   <input type="text", value="<%= @comment.post.title %>">
-   <textarea rows="5", cols="50",type="text", value ="<%= @comment.comment %>"></textarea>
-   <button>Update</button>
+   <%= form_for @comment do |f| %>
+   <h4>Post</h4>
+   <h4> <%= link_to @comment.post.title, @comment.post %></h4>
+   <%= f.label :comment %>
+   <%= f.text_area :comment, :value => @comment.comment %>
+   <%= f.submit %>
+   <% end %>
 </form>
 </div>
 </div>
