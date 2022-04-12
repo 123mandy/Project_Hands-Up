@@ -1,0 +1,15 @@
+<% @comments.reverse.each do |comment| %>
+ <div class="content_main">
+   <div class="row">
+     
+       <div class="col-8 col-md-8">
+           <h5><%= link_to comment.post.title %></h5>
+           <p><%= comment.comment %></p>
+       </div>
+       <div class="col-4 col-md-4 control">
+           <%= link_to "Edit Comment", edit_comment_path(comment.id) %>
+           <%= link_to "Delete Comment",comment,:method => "delete" %>
+       </div>
+     </div>
+   </div>
+<% end %>

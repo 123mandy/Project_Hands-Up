@@ -1,0 +1,17 @@
+<%= form_for @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, :required => true %>
+  <%= f.label "Status" %>
+  <%= f.select :status_id, Status.pluck(:completion, :id)%>
+  <%= f.label "Area" %>
+  <%= f.select :location_id, Location.pluck(:name, :id)%>
+  
+  <%= f.label :address %>
+  <%= f.text_field :address, :required => true %>
+  <%= f.label :content%>
+  <%= f.text_area :content, :rows => "5", :required => true %>
+  <%= f.hidden_field :user_id, :value => @current_user.id %>
+  <%= f.submit "Need Help", :class => "link_button no_margin"  %>
+  
+<% end %>
+

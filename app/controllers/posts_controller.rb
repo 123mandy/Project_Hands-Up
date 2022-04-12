@@ -3,6 +3,11 @@ class PostsController < ApplicationController
         @post = Post.find params[:id]   
     end
 
+    def user_posts
+        user = User.find params[:id]
+        @posts = user.posts
+    end
+
     def new
         @post = Post.new
     end
@@ -13,7 +18,19 @@ class PostsController < ApplicationController
     end
 
     def edit
+        @post = Post.find params[:id]
+    end
+
+    def update
         post = Post.find params[:id]
+        post.update post_params
+        redirect_to user_posts_path(post.user_id)
+    end
+
+    def destroy
+        post = Post.find params[:id]
+        post.destroy
+        redirect_to user_posts_path(post.user_id)
     end
 
     private

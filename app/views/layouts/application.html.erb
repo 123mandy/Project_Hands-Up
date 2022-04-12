@@ -40,8 +40,8 @@
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                      <li><%= link_to "Your Profile", @current_user, :class => "dropdown-item" %></li>
                      <li><%= link_to "Need Help", new_post_path, :class => "dropdown-item" %></li>
-                     <li><a class="dropdown-item" href="#">Edit posts</a></li>
-                     <li><a class="dropdown-item" href="#">Edit comments</a></li>
+                     <li><%= link_to "Edit Posts", user_posts_path(@current_user.id), :class => "dropdown-item" %></li>
+                     <li><%= link_to "Edit Comments", user_comments_path(@current_user.id), :class => "dropdown-item" %></li>
                   </ul>
                 </li>
                 <% else %>

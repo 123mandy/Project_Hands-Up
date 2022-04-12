@@ -1,0 +1,12 @@
+<div class ="post_content_div">
+<div class="center_div">
+<form action="" method = "post">
+   <label for=""><%= link_to @comment.post.title, @comment.post %> </label>
+   
+   <label for="">Comment:</label>
+   <input type="text", value="<%= @comment.post.title %>">
+   <textarea rows="5", cols="50",type="text", value ="<%= @comment.comment %>"></textarea>
+   <button>Update</button>
+</form>
+</div>
+</div>

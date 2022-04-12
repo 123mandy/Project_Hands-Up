@@ -94,7 +94,7 @@ input{
 
 .content_main{
     width: 70%;
-    margin: 0 auto;
+    margin: 30px auto;
    
 }
 
@@ -162,6 +162,10 @@ textarea{
     margin: 0 auto;
 }
 
+.control{
+    text-align: right;
+    padding-top: 20px;    
+}
 
 
 #map { 

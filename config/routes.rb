@@ -9,7 +9,10 @@ post "/login" => "session#create"
 delete "/login" => "session#destroy"
 
 get "/main" =>"pages#main"
-resources :posts, :only => [:new, :create, :destroy, :edit, :show]
-resources :comments, :only => [:create, :destroy, :edit]
+resources :posts
+resources :comments
+
+get "/users/:id/posts" => "posts#user_posts", :as => "user_posts"
+get "/users/:id/comments" => "comments#user_comments", :as => "user_comments"
 
 end

@@ -1,0 +1,15 @@
+<% @posts.reverse.each do |post| %>
+ <div class="content_main">
+   <div class="row">
+     
+       <div class="col-8 col-md-8">
+           <h5><%= link_to post.title, post %></h5>
+           <p><%= post.content %></p>
+       </div>
+       <div class="col-4 col-md-4 control">
+           <%= link_to "Edit Post", edit_post_path(post.id) %>
+           <%= link_to "Delete post",post,:method => "delete" %>
+       </div>
+     </div>
+   </div>
+<% end %>
