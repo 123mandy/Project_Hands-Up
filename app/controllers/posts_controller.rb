@@ -3,6 +3,19 @@ class PostsController < ApplicationController
         @post = Post.find params[:id]   
     end
 
+    def filter
+        if params[:post][:location_id].present?
+          @posts = Post.where(location_id: params[:post][:location_id])
+        else
+          redirect_to posts_path
+        end
+    end
+
+
+    def index
+        @posts = Post.all
+    end
+
     def user_posts
         user = User.find params[:id]
         @posts = user.posts
@@ -24,6 +37,8 @@ class PostsController < ApplicationController
     def update
         post = Post.find params[:id]
         post.update post_params
+        post.latitude = Geocoder.search(post.address)[0]
+        post.longitude = Geocoder.search(post.address)[1]
         redirect_to user_posts_path(post.user_id)
     end
 

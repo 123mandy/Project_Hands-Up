@@ -4,7 +4,7 @@
        <h3><%= @post.title %></h3>
        <p><%= @post.content %></p>
        <p class="user_name_bottom"><%= link_to @post.user.user_name, user_path(@post.user.id) %></p>
-    </div>
+     </div>
        <% @post.comments.each do |comment| %>
        <div class ="single_comment" >
            <p><%= comment.comment %></p>
@@ -22,6 +22,7 @@
     
     <div class="col-6 col-md-6">
         <div id="map">
+        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@post.latitude}%2C#{@post.longitude}" %>
         </div>
     </div>
 </div>
