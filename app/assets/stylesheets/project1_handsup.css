@@ -1,10 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
+/*  default set */
+
 body{
     font-family: 'Cabin', sans-serif;
 }
+
+h1, h2{
+    margin-left: 50px;
+}
+
+h2{
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+input{
+    display:block;
+}
+
+label{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+input{
+    width: 250px;
+}
+
+select{
+    display: block;
+}
+
+textarea{
+    display: block;
+    width: 250px; 
+    white-space: pre-line;  
+    
+}
+
+p{
+    white-space: pre-line;
+}
+
 .banner_image{
     height: 100vh;
+    width: 100%;
+    
 }
 
 .banner{
@@ -22,19 +66,14 @@ body{
 }
 
 
-h1, h2{
-    margin-left: 50px;
-}
+
 
 .title{
     font-size: 80px;
     margin-bottom: 30px;
 }
 
-h2{
-    font-size: 40px;
-    margin-bottom: 30px;
-}
+
 
 .link_button{
     margin-left: 50px;
@@ -60,9 +99,7 @@ h2{
     color: white;
 }
 
-input{
-    display:block;
-}
+
 
 .form_div{
     margin: 150px auto;
@@ -73,16 +110,7 @@ input{
     box-shadow: 0px 0px 30px rgb(143, 143, 143);
 }
 
-label{
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
 
-input{
-    width: 250px;
-}
 
 .no_margin{
     margin-left: 0;
@@ -138,16 +166,7 @@ input{
 
 /* post page css style */
 
-select{
-    display: block;
-}
 
-textarea{
-    display: block;
-    width: 250px;
-    
-    
-}
 
 .post_content_div{
     width: 35%;
