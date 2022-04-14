@@ -9,6 +9,7 @@ post "/login" => "session#create"
 delete "/login" => "session#destroy"
 
 get "/posts/filter" => "posts#filter", :as => "filter"
+get "/posts/search" => "posts#search", :as => "search"
 
 resources :posts
 resources :comments

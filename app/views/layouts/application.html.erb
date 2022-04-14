@@ -45,6 +45,12 @@
                      <li><%= link_to "Edit Posts", user_posts_path(@current_user.id), :class => "dropdown-item" %></li>
                      <li><%= link_to "Edit Comments", user_comments_path(@current_user.id), :class => "dropdown-item" %></li>
                   </ul>
+                  <li class="nav-item">
+                     <form action="/posts/search">
+                     <input name="key" type="text" placeholder="Search" aria-label="Search">
+                     <button type="submit">Search</button>
+                     </form>
+                  </li>
                 </li>
                 <% else %>
                 <li class="nav-item">
