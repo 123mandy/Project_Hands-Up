@@ -23,6 +23,7 @@ class PostsController < ApplicationController
 
     def new
         @post = Post.new
+       
     end
 
     def create
@@ -37,8 +38,8 @@ class PostsController < ApplicationController
     def update
         post = Post.find params[:id]
         post.update post_params
-        post.latitude = Geocoder.search(post.address)[0]
-        post.longitude = Geocoder.search(post.address)[1]
+        post.latitude = Geocoder.search(post.address)[0].latitude
+        post.longitude = Geocoder.search(post.address)[1].longitude
         redirect_to user_posts_path(post.user_id)
     end
 

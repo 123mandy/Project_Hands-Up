@@ -13,3 +13,30 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+let map;
+
+function initMap() {
+let latNum=parseFloat(document.getElementById("latitude").innerText)
+let lngNum=parseFloat(document.getElementById("longitude").innerText)
+  const mapOptions = {
+    zoom: 16,
+    center: { lat: latNum, lng: lngNum },
+  };
+
+  map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+  const marker = new google.maps.Marker({
+
+    position: { lat:latNum, lng: lngNum },
+    map: map,
+  });
+
+  const infowindow = new google.maps.InfoWindow({
+    content: "<p>Help!</p>",
+  });
+
+  google.maps.event.addListener(marker, "click", () => {
+    infowindow.open(map, marker);
+  });
+}

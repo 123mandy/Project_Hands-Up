@@ -11,6 +11,7 @@
   <%= f.label :content%>
   <%= f.text_area :content, :rows => "5", :required => true %>
   <%= f.hidden_field :user_id, :value => @current_user.id %>
+  <%= f.label :image %>
   <%= f.submit "Need Help", :class => "link_button no_margin"  %>
   
 <% end %>
