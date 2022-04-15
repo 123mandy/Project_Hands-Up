@@ -3,6 +3,7 @@ class PostsController < ApplicationController
         @post = Post.find params[:id]   
     end
 
+
     def filter
         if params[:post][:location_id].present?
           @posts = Post.where(location_id: params[:post][:location_id])
@@ -13,7 +14,6 @@ class PostsController < ApplicationController
 
     def search
         @posts = Post.where("title LIKE ?","%" + params[:key] + "%")
-
     end
 
 
@@ -54,6 +54,6 @@ class PostsController < ApplicationController
 
     private
     def post_params
-        params.require(:post).permit(:title, :status_id, :location_id, :address, :content, :user_id)
+        params.require(:post).permit(:title, :status_id, :location_id, :address, :content, :user_id,:price)
     end
 end

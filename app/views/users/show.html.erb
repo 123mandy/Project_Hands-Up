@@ -4,14 +4,24 @@
       <% if @current_user == @user %>
        <h2>Welcome! <%= @user.user_name %> 🔆 </h2>
         <% if @user.image.present?  %>
-        <%= cl_image_tag(@user.image) %>
+        <%= cl_image_tag @user.image, :class => "profile-img" %>
+        <% else %>
+        <img src="https://farmersca.com/wp-content/uploads/2016/07/default-profile.png" alt="" class="profile-img">
         <% end %>
        <%= form_for(@user, :html => {:multipart => true}) do |f| %>
-       <%= f.label "User Name:" %>
+       <%= f.label "New user Name:" %>
        <%= f.text_field :user_name %>
 
        <%=f.label "Profile photo" %>
        <%= f.cl_image_upload :image %>
+
+       <%= f.label "Change your password:" %>
+       <%= f.text_field :password %>
+
+       <%= f.label "Confirm your password:" %>
+       <%= f.text_field :password_confirmation %>
+
+
        <%= f.submit "Update Profile" %>
        <% end %>
       <% else %>

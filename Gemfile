@@ -58,3 +58,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "ransack", "~> 2.5"
 gem "jquery-rails"
+
+gem "bootstrap"
+gem "font-awesome-rails"
