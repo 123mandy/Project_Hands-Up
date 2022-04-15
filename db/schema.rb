@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2022_04_14_032125) do
     t.text "address"
     t.decimal "latitude", precision: 10, scale: 6
     t.decimal "longitude", precision: 10, scale: 6
-    t.text "image", default: [], array: true
+    t.text "image"
     t.integer "price"
   end
 
