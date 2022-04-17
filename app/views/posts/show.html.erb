@@ -38,11 +38,9 @@
             <p class="add-bottom-border"><%= @post.content %></p>
           </div>
           
-        </div>         
+        </div>     
           <% if @post.image.present?%>
           <%= cl_image_tag @post.image, :class => "thumb" %>
-          <% else %>
-          <img src="https://advancepetproduct.com/wp-content/uploads/2019/04/no-image.png" alt="" class="thumb">
           <% end %> 
         </div>
         <p hidden id="latitude"><%= @post.latitude %></p>
