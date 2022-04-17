@@ -7,9 +7,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
+    @user.image = "/assets/user.jpg" if @user.image.nil?
     if @user.save
       session[:user_id] = @user.id
-      redirect_to main_path
+      redirect_to posts_path
     else
       render :new
     end
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:user_name, :email, :password, :passeord_confirmation,:image)
+    params.require(:user).permit(:user_name, :email, :password, :password_confirmation,:image)
   end
 
 end

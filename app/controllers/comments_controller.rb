@@ -10,15 +10,22 @@ class CommentsController < ApplicationController
         @comment = Comment.find params[:id]
     end
 
+    def update
+        comment = Comment.find params[:id]
+        comment.update comment_params
+        redirect_to post_path(comment.post_id)
+    end
+
     def user_comments
         user = User.find params[:id]
         @comments = user.comments
     end
 
+
     def destroy
         comment = Comment.find params[:id]
         comment.destroy
-        redirect_to user_comments_path(comment.user_id)
+        redirect_to post_path(comment.post_id)
     end
 
     private

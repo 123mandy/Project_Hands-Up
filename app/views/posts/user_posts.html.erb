@@ -1,15 +1,37 @@
-<% @posts.reverse.each do |post| %>
- <div class="content_main">
-   <div class="row">
-     
-       <div class="col-8 col-md-8">
-           <h5><%= link_to post.title, post %></h5>
-           <p><%= post.content %></p>
-       </div>
-       <div class="col-4 col-md-4 control">
-           <%= link_to "Edit Post", edit_post_path(post.id) %>
-           <%= link_to "Delete post",post,:method => "delete" %>
-       </div>
+<% if @posts.count == 0 %>
+  <div class="row text-align-center">
+    <h4>You haven't done any post</h4>
+  </div>
+<% else %>
+  <% @posts.reverse.each do |post| %>
+   <div class="content_main">
+     <div class="row">
+        <div class="col-9 single_post">
+              <h3 class="post-title"><%= link_to post.title, post %></h3>
+              <p class="user_name_top"><%= post.created_at.localtime.strftime '%Y-%m-%d %H:%M:%S' %>
+              <div class="row add-margin-bottom">
+                <div class="col-1">
+                  <img src="/assets/location.png" alt="" class="icon-index">
+                </div>
+                <div class="col-11">
+                  <p class="card-text"><%= post.address %></p>
+                </div>
+              </div>
+              <div class="row add-margin-bottom">
+                <div class="col-1">
+                  <img src="/assets/dollor.png" alt="" class="icon-index">
+                </div>
+                <div class="col-11">
+                  <p class="card-text"><%= post.price %></p>
+                </div>
+              </div>
+              <h5>Details:</h5>
+              <p class="add-bottom-border"><%= post.content %></p>
+              <% if post.status.completion == "Done"%>
+              <img src="/assets/completed.png" alt="" class="completed">
+              <% end %>
+            </div>
+        </div>
      </div>
-   </div>
+  <% end %>
 <% end %>

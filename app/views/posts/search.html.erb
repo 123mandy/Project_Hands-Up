@@ -3,10 +3,39 @@
   <div class="row">
    <% @posts.each do |post| %>
    
-      <div class='post_div_small'>
-         <h3><%= link_to post.title, post %></h3>
-         <h5><%= post.address %></h5>
-         <p><%= post.content %></p>
+           <div class="card" style="width: 30%; padding:0; margin:1.5% 1.5%">
+        <div class="img-height">
+         <% if post.image.present? %>
+         <%= cl_image_tag post.image, :class => "card-img-top" %>
+         <% else %>
+         <img src="https://advancepetproduct.com/wp-content/uploads/2019/04/no-image.png" alt="" class="card-img-top">
+         <% end %>
+        </div> 
+         <div class="card-body">
+          <div class="text-height">
+            <h5 class="card-title"><%= post.title %></h5>
+            <div class="row add-margin-bottom">
+               <div class="col-1">
+                  <img src="/assets/location.png" alt="" class="icon-index">
+               </div>
+               <div class="col-11">
+                  <p class="card-text"><%= post.address %></p>
+               </div>
+            </div>
+            <div class="row add-margin-bottom">
+               <div class="col-1">
+                  <img src="/assets/dollor.png" alt="" class="icon-index">
+               </div>
+               <div class="col-11">
+                  <p class="card-text"><%= post.price %></p>
+               </div>
+            </div>
+          </div>
+           <%= link_to "Explore details", post, :class => "btn btn-primary" %>
+           <% if post.status.completion == "Done" %>
+           <img src="/assets/completed.png" alt="" class="completed">
+           <% end%>
+         </div>
       </div>
    <% end %>
   </div>

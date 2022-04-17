@@ -1,16 +1,20 @@
-<% @comments.reverse.each do |comment| %>
-<% if comment.post != nil %>
- <div class="content_main">
-   <div class="row">
-     
-       <div class="col-8 col-md-8">
-           <p><%= comment.comment %></p>
-       </div>
-       <div class="col-4 col-md-4 control">
-           <%= link_to "Edit Comment", edit_comment_path(comment.id) %>
-           <%= link_to "Delete Comment",comment,:method => "delete" %>
-       </div>
-     </div>
-   </div>
-   <% end %>
+<% if @comments.count == 0 %>
+  <div class="row text-align-center">
+    <h4>You haven't done any comment</h4>
+  </div>
+<% else %>
+  <% @comments.reverse.each do |comment| %>
+  <% if comment.post != nil %>
+    <div class="content_main">
+      <div class="row">
+        <div class="col-6 col-md-6 single_comment">
+            <h3 class="post-title"><%= link_to comment.post.title, post_path(comment.post.id) %></h3>
+            <p class="user_name_top"><%= comment.created_at.localtime.strftime '%Y-%m-%d %H:%M:%S' %> </p>
+            <p><%= comment.comment %></p>
+            
+        </div>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
 <% end %>

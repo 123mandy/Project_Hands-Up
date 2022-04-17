@@ -6,14 +6,14 @@ class PostsController < ApplicationController
 
     def filter
         if params[:post][:location_id].present?
-          @posts = Post.where(location_id: params[:post][:location_id])
+          @posts = Post.where(location_id: params[:post][:location_id]).reverse
         else
           redirect_to posts_path
         end
     end
 
     def search
-        @posts = Post.where("title LIKE ?","%" + params[:key] + "%")
+        @posts = Post.where("title LIKE ? or content LIKE ?","%" + params[:key] + "%","%" + params[:key] + "%")
     end
 
 
@@ -27,12 +27,16 @@ class PostsController < ApplicationController
     end
 
     def new
-        @post = Post.new
-       
+        @post = Post.new      
     end
 
     def create
         post = Post.create post_params
+        if params[:file].present?
+            req = Cloudinary::Uploader.upload(params[:file])
+            post.image = req["public_id"]
+            post.save
+        end
         redirect_to post
     end
 
@@ -42,8 +46,13 @@ class PostsController < ApplicationController
 
     def update
         post = Post.find params[:id]
-        post.update post_params
-        redirect_to user_posts_path(post.user_id)
+        if params[:file].present?
+            req = Cloudinary::Uploader.upload(params[:file])
+            post.image = req["public_id"]
+        end
+        post.update_attributes(post_params)
+        post.save
+        redirect_to post_path(post.id)
     end
 
     def destroy
@@ -54,6 +63,6 @@ class PostsController < ApplicationController
 
     private
     def post_params
-        params.require(:post).permit(:title, :status_id, :location_id, :address, :content, :user_id,:price)
+        params.require(:post).permit(:title, :status_id, :location_id, :address, :content, :user_id,:price, :image)
     end
 end

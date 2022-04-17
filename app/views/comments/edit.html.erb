@@ -1,14 +1,12 @@
 <div class ="post_content_div">
 <div class="center_div">
-<form action="" method = "post">
-   
+
    <%= form_for @comment do |f| %>
-   <h4>Post</h4>
+   <%= f.label "Post:", :class => "form-label" %>
    <h4> <%= link_to @comment.post.title, @comment.post %></h4>
-   <%= f.label :comment %>
-   <%= f.text_area :comment, :value => @comment.comment %>
-   <%= f.submit %>
+   <%= f.label :comment, :class => "form-label" %>
+   <%= f.text_area :comment, :value => @comment.comment,  :class => "form-control" %>
+   <%= f.submit "Edit Comment", :class => "link_button submit-buttom" %>
    <% end %>
-</form>
 </div>
 </div>

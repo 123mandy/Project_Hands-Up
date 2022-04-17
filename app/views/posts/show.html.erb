@@ -1,37 +1,102 @@
 <div class="row content_main">
-    <div class="col-6 col-md-6">
-     <div class="single_post">
-       <h3><%= @post.title %></h3>
-       <p><%= @post.address %></p>
-       <p hidden id="latitude"><%= @post.latitude %></p>
-       <p hidden id="longitude"><%= @post.longitude %></p>
-       <p><%= @post.content %></p>
-       <p class="user_name_bottom"><%= link_to @post.user.user_name, user_path(@post.user.id) %></p>
-     </div>
-       <% @post.comments.each do |comment| %>
-       <div class ="single_comment" >
-           <p><%= comment.comment %></p>
-           <p class="user_name_bottom"><%= link_to comment.user.user_name, user_path(comment.user.id) %></p>
-       </div>
-       <% end %>
-     <%= form_for Comment.new do |f| %>
-     <%= f.text_field :comment %>
-     <%= f.hidden_field :post_id, :value => @post.id %>
-     <%= f.submit "Add Your Comment",:class => "link_button_small" %>
-             
-     <% end %>
+  <div class="col-6 col-md-6 scroll-div">
+  
+<!-- show single post -->
+    <div class="single_post">
+        <div class ="row">
+          <div class="col-3">
+              <%= cl_image_tag @post.user.image, :class => "userImg-in-post"%>
+              <p class="user_name_bottom">Post by: <%= link_to @post.user.user_name, user_path(@post.user.id) %></p>
+              <% if @current_user == @post.user%>
+              <div class="text-align-center">
+              <%= link_to "Edit", edit_post_path(@post.id), :class =>"btn-sm btn-primary" %>
+              <%= link_to "Delete", @post ,:method => "delete", :class =>"btn-sm btn-danger"  %>
+              </div>
+              <% end  %>
+          </div>
+
+          <div class="col-9">
+            <h2><%= @post.title %></h2>
+            <p class="user_name_top"><%= @post.created_at.localtime.strftime '%Y-%m-%d %H:%M:%S' %>
+            <div class="row add-margin-bottom">
+              <div class="col-1">
+                <img src="/assets/location.png" alt="" class="icon-index">
+              </div>
+              <div class="col-11">
+                <p class="card-text"><%= @post.address %></p>
+              </div>
+            </div>
+            <div class="row add-margin-bottom">
+              <div class="col-1">
+                <img src="/assets/dollor.png" alt="" class="icon-index">
+              </div>
+              <div class="col-11">
+                <p class="card-text"><%= @post.price %></p>
+              </div>
+            </div>
+            <h5>Details:</h5>
+            <p class="add-bottom-border"><%= @post.content %></p>
+          </div>
+          
+        </div>         
+          <% if @post.image.present?%>
+          <%= cl_image_tag @post.image, :class => "thumb" %>
+          <% end %>
+        </div>
+        <p hidden id="latitude"><%= @post.latitude %></p>
+        <p hidden id="longitude"><%= @post.longitude %></p>
+        
+<!-- show comments belong to this post -->
+        
+        <% @post.comments.each do |comment| %>
+          <div class ="row  single_comment">
+            <div class="col-2 add-right-border">
+              <%= cl_image_tag comment.user.image, :class => "userImg-in-post"%>
+              
+            </div>
+            <div class="col-10 only-comment">
+              <p class="user_name_top"><%= link_to comment.user.user_name, user_path(comment.user.id), :class =>"link-name-comment" %> <%= comment.created_at.localtime.strftime '%Y-%m-%d %H:%M:%S' %> </p>
+              <p><%= comment.comment %></p>
+              <% if @current_user.id == comment.user.id %>
+              <div class="button-bottom">
+                <%= link_to "Edit", edit_comment_path(comment.id), :class =>"btn-sm btn-primary" %>
+                <%= link_to "Delete", comment ,:method => "delete", :class =>"btn-sm btn-danger"  %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+
+<!-- leave comments form -->
+<%# if the case is closed, you can not add a new comment %>
+
+        <% if @post.status.completion != "Done"%>
+
+        <div class="leave-comment">
+          <h4>Leave your comments:</h4>
+          <%= form_for Comment.new do |f| %>
+          <%= f.text_area :comment, :class => "form-control" %>
+          <%= f.hidden_field :post_id, :value => @post.id %>
+          <%= f.submit "Add Your Comment",:class => "btn btn-outline-primary" %>      
+          <% end %>
+        </div>
+        <% end %>
+
      
     </div>
-    
     <div class="col-6 col-md-6">
-    <div id="map" style="width: 100%; height: 90vh;"></div>
+      <div id="map" style="width: 100%; height: 80vh;"></div>
       <script type="text/javascript">
+      // google map javascript  
+      // select latitude and longitude from HTML
+
         let latNum=parseFloat(document.getElementById("latitude").innerText)
         let lngNum=parseFloat(document.getElementById("longitude").innerText)
         var locations = [
           ['Bondi Beach',latNum, lngNum, 4]
         ];
-        
+
+      //set google map 
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 15,
           center: new google.maps.LatLng(latNum, lngNum),
@@ -47,18 +112,11 @@
             position: new google.maps.LatLng(locations[i][1], locations[i][2]),
             map: map
           });
-          
-          google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            return function() {
-              infowindow.setContent(locations[i][0]);
-              infowindow.open(map, marker);
-            }
-          })(marker, i));
         }
       </script>
 
-      </div>
-    </div>  
+    </div>
+  </div>  
 </div>
 
 

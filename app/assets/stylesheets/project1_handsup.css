@@ -5,9 +5,7 @@
 body{
     font-family: 'Cabin', sans-serif;
     background-color:#f6f8fd
-
 }
-
 
 h2{
     font-size: 40px;
@@ -25,9 +23,6 @@ label{
     margin-bottom: 5px;
 }
 
-input{
-    width: 250px;
-}
 
 select{
     display: block;
@@ -48,18 +43,19 @@ nav{
 }
 
 .banner_image{
-    height: 100vh;
+
     width: 100%;
     
 }
 
 .home-title{
-    margin-left:60px ;
-    margin-top: 200px;
-    background-color: white;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.416);
     border-radius: 30px;
-    padding: 20px;
-    width: 60%;
+    width: fit-content;
+    top: 30%;
+    right: 20%;
+    padding: 30px;
 }
 
 .banner{
@@ -149,26 +145,32 @@ nav{
 
 .single_post{
     background-color: white;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 0px 0px 15px rgb(195, 195, 195); 
     padding: 20px;
-    margin-top:50px ;
-    margin-bottom:20px ;
+    margin-bottom:20px;
+    position: relative;
+}
+
+.post-show-userImg{
+    position: absolute;
+    top: 50px;
+    right: 30px;
+    border-radius: 50%;
+    width: 120px;
 }
 .single_comment{
-    width: 60%;
     background-color: white;
-    border-radius: 20px;
-    box-shadow: 0px 0px 15px rgb(195, 195, 195); 
+    border-radius: 10px;
     padding: 20px;
-    margin-top:30px;
-    margin-bottom: 30px;
 }
 
 .user_name_bottom{
     margin: 0;
     color: #0d6efd;
-    text-align: end;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .add_comment_input{
@@ -187,10 +189,11 @@ nav{
     border-radius: 30px;
     padding-top: 30px;
     padding-bottom: 30px;
+    background-color: white;
 }
 
 .center_div{
-    width:250px;
+    width:70%;
     margin: 0 auto;
 }
 
@@ -200,9 +203,6 @@ nav{
 }
 
 
-#map {
-    height: 100%;
-  }
 
 
 
@@ -211,18 +211,17 @@ nav{
 .scroll-div{
     overflow-y:scroll;
     height:80vh;
+    
 }
 
-.profile-img-post {
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    border-radius: 50%;
-    width: 10%;
-}
 
 .icon{
     width: 20px;
+}
+
+.icon-index{
+    
+    width: 25px;
 }
 
 .card{
@@ -255,7 +254,133 @@ nav{
     margin-bottom: 5px;
 }
 
+.post-img{
+    width: 100%;
+}
+
+.thumb{
+    width: 100%;
+}
 
 
+.card-text{
+    background-color: rgb(242, 242, 242);
+    margin-bottom: 3px;
+    border: 1pt solid rgba(0, 0, 0, 0.062);
+    border-radius: 5px;
+    min-height: 24px;
+}
+
+.img-height{
+    height:60%
+}
+
+.card-body{
+    background-color: white;
+}
+.text-height{
+    margin-bottom:20px;
+}
+
+label.form-control-plaintext{
+    padding: 0;
+    margin-left: 1.5%;
+}
+
+select#post_location_id{
+    height: 38px;
+}
+
+select#post_status_id{
+    height: 38px;
+}
+
+.add-margin-left{
+    margin-left: 1.5%;
+}
+
+.text-align-right{
+    text-align: right;
+    margin-right: 6%;
+}
+.add-bottom-border{
+    border-bottom: 1px solid #5b7db180;
+}
+
+.add-right-border{
+    border-right: 1px solid #5b7db180;
+}
+
+.add-margin-bottom{
+    margin-bottom: 15px;
+}
+
+.userImg-in-post{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.text-align-center{
+    text-align: center;
+}
+
+.only-comment{
+    position: relative;
+}
+
+.button-bottom{
+   position: absolute;
+    bottom: 0;
+    right: 20px;
+}
+
+.user_name_top{
+    background-color: #edf4ed ;
+}
+
+.link-name-comment{
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.leave-comment{
+    background-color: white;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.profile-img-post{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.profile-img{
+    display: block;
+    margin: 10px auto;
+    width:50%;
+    border-radius: 50%;
+}
+
+.post-title{
+    margin-bottom: 20px;
+}
+
+.completed{
+    position: absolute;
+    width: 20%;
+    top:0;
+    right: 0;
+}
+
+.completed-bottom{
+    position: absolute;
+    width: 20%;
+    bottom:5%;
+    right: 0;
+}
+
+.submit-buttom{
+    margin: 20px auto;
+}
 
 
