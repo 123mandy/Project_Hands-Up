@@ -1,11 +1,16 @@
 <div class="content_main">
   <div class="row add-bottom-border">
       <div class="col-9">
+
+       <%# filter function %>
+
          <%= render :partial => 'form_filter' %>
       </div>
-
     <div class="col-3">
         <div class="text-align-right">
+
+        <%# list function %>
+
          <%= link_to "list", posts_path, :class => "btn btn-outline-primary"%>
          </div>
       </div>
@@ -13,6 +18,9 @@
   
   <div class="row">
    <% @posts.reverse.each do |post| %>
+
+       <%# cards for all the posts %>
+
       <div class="card" style="width: 30%; padding:0; margin:1.5% 1.5%">
         <div class="img-height">
          <% if post.image.present? %>
@@ -41,6 +49,9 @@
                </div>
             </div>
           </div>
+
+           <%# Check if the task has been completed %>
+
            <%= link_to "Explore details", post, :class => "btn btn-primary" %>
            <% if post.status.completion == "Done" %>
            <img src="/assets/completed.png" alt="" class="completed">
@@ -48,8 +59,5 @@
          </div>
       </div>
    <% end %>
-
-
-
   </div>
 </div>

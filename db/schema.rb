@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2022_04_14_032125) do
     t.text "email"
     t.text "password_digest"
     t.text "image"
+    t.integer "assign_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

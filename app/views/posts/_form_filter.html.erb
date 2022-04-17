@@ -1,4 +1,6 @@
- <%= form_for :post, url: {action: "filter"}, html: {method: "get", class:"row g-3"} do |f| %>
+<%# filter form %>
+
+<%= form_for :post, url: {action: "filter"}, html: {method: "get", class:"row g-3"} do |f| %>
    <div class="col-auto">
     <%= f.label "Find your area", :class => "form-control-plaintext" %>
    </div>

@@ -1,5 +1,14 @@
 <div class="content_main">
-  <%= render :partial => 'form_filter' %>
+   <div class="row add-bottom-border">
+      <div class="col-9">
+         <%= render :partial => 'form_filter' %>
+      </div>
+      <div class="col-3">
+         <div class="text-align-right">
+         <%= link_to "list", posts_path, :class => "btn btn-outline-primary"%>
+         </div>
+      </div>
+  </div>
   <div class="row">
    <% @posts.each do |post| %>
    
