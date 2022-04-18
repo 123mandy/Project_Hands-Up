@@ -8,7 +8,7 @@ A functional website building on **RUBY, RUBY ON RAILS, POSTGRESSQL, BOOTSTRAP, 
 Also use **Heroku and Cloudinary** to make sure everyone can enjoy this website.
 </br>
 
-Don't worry if you see `this page can't load google map properly`! It is because I didn't attach my billing details to the account that I created for a free google API ley!
+Don't worry if you see `this page can't load google map properly`! It is because I didn't attach my billing details to the account that I created for a free google API key!
 </br>
 
 Use this [link](https://handsup-2022.herokuapp.com/) to start your HandsUp journey!
