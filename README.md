@@ -37,7 +37,7 @@ You can also use google map to see the location of the task to help you make dec
 
 ---
 
-**SEARCH YOUR FAVARITE TASKERS** </br>
+**SEARCH YOUR FAVARITE TASKS** </br>
 ![screen shots](app/assets/images/screen_3.gif)
 
 ---
