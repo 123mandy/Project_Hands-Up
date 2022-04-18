@@ -433,7 +433,16 @@ select#post_status_id{
 }
 
 .userImg-in-post{
-    width: 100%;
+    width: 4vw;
+    height:4vw;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.userImg-in-post-big{
+    width: 7vw;
+    height:7vw;
+    object-fit: cover;
     border-radius: 50%;
 }
 
@@ -467,14 +476,18 @@ select#post_status_id{
 }
 
 .profile-img-post{
-    width: 100%;
+    width: 4vw;
+    height: 4vw;
+    object-fit: cover;
     border-radius: 50%;
 }
 
 .profile-img{
     display: block;
     margin: 10px auto;
-    width:50%;
+    width:25vw;
+    height:25vw;
+    object-fit: cover;
     border-radius: 50%;
 }
 
