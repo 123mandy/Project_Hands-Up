@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
         comment = Comment.new comment_params
         comment.user = @current_user
         comment.save
+        flash[:comment]= "Thanks for your comment 💬"
         redirect_to post_path(comment.post_id)  
     end
 
@@ -13,6 +14,7 @@ class CommentsController < ApplicationController
     def update
         comment = Comment.find params[:id]
         comment.update comment_params
+        flash[:edit_comment]= "Thanks for updating your comment 🖊️"
         redirect_to post_path(comment.post_id)
     end
 
@@ -25,6 +27,7 @@ class CommentsController < ApplicationController
     def destroy
         comment = Comment.find params[:id]
         comment.destroy
+        flash[:delete_comment]= "Your comment has be deleted ❌"
         redirect_to post_path(comment.post_id)
     end
 

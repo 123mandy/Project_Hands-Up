@@ -26,3 +26,5 @@ You can also use google map to see the location of the task to help you make dec
 
 1. Will add a assign button in Next version
 2. Will see how many people want to solve your problem in Next version
+3. You need a shift refresh to see the map
+4. Also need a shift refresh to see the eyes animation

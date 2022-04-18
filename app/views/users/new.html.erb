@@ -1,3 +1,11 @@
+<div class="container-eyes">
+    <div class="eyeBall">
+      <div class="iris"></div>
+    </div>
+    <div class="eyeLid"></div>
+    <div class="lid"></div>
+</div>
+
 
 <div class="form_div">
   <div class ="form_content_div">
@@ -24,9 +32,20 @@
 
 
 
-        <%= f.submit "Sign up!", :class => "link_button no_margin" %>
+        <%= f.submit "Sign up!", :class => "link_button" %>
       <% end %>
   </div>
 </div>
+
+
+<script>
+  const eye = document.querySelector('.iris');
+  window.addEventListener('mousemove', (event) => {
+    const x = -(window.innerWidth / 2 - event.pageX) / 35;
+    const y = -(window.innerHeight / 2 - event.pageY) / 35;
+    eye.style.transform = `rotate(-45deg) translateY(${y}px) translateX(${x}px)`;         
+    }); 
+
+</script>
     
 

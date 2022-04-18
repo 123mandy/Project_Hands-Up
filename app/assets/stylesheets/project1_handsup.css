@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:wght@700&display=swap');
+
 
 /*  default set */
 
@@ -6,6 +8,112 @@ body{
     font-family: 'Cabin', sans-serif;
     background-color:#f6f8fd
 }
+
+
+/*  animate charcter in home page */
+.animate-charcter{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #000000 0%,
+    #44107a 29%,
+    #67b4dd 67%,
+    #25f0a6 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 3s linear infinite;
+  display: inline-block;
+      font-size: 190px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/*  animate charcter in home page */
+
+/*  eyes follow mouse */
+.container-eyes {
+    width: 150px;
+    position: relative;
+    cursor: pointer;
+    margin:0 auto;
+    top:120px;
+  }
+  
+  .iris {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 5px solid #333;
+    background-color: #0077b6;
+    border-radius:50%;
+    left:40px;  
+    top:30px;
+  }
+  
+  .iris:before {
+    content:"";
+    position: absolute;
+    background-color: #333;
+    border-radius:50%;
+    width:40px;
+    height: 40px;
+    top:22%;
+    left:22%;
+  }
+  
+  .iris:after {
+    content:"";
+    position: absolute;
+    background-color: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    width:15px;
+    height:15px;
+    top:35%;
+    left:65%;
+    box-shadow: -35px 20px rgba(255,255,255,0.4);
+  }
+  
+  .eyeBall {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border: 5px solid #333;
+    border-radius:100% 0;
+    box-shadow: inset 5px 5px 5px rgba(0,0,0,0.3);
+    transform: rotate(45deg);
+    top:-10px;
+    z-index:1;
+    overflow: hidden;
+  }
+  
+  .eyeLid {
+    position: absolute;
+    border-top: 5px solid #333;
+    border-left: 5px solid #333;
+    border-radius:100% 0;
+    width: 150px;
+    height: 150px;
+    top:-30px;
+    left:3px;
+    transform: rotate(45deg);
+    transition: .2s;
+    z-index:10;
+  }
+  
+/*  eyes follow mouse */
+
 
 h2{
     font-size: 40px;
@@ -41,6 +149,7 @@ nav{
     background-color: #ffffff;
     border-bottom: 1px solid #5b7db180;
 }
+
 
 .banner_image{
 
@@ -84,8 +193,7 @@ nav{
 
 
 .link_button{
-    margin-right: 50px;
-    margin-top: 20px;
+    margin: 20px auto;
     border-radius: 20px;
     border: 0.5px solid rgb(175, 175, 175);
     font-size: 20px;
@@ -110,9 +218,9 @@ nav{
 
 
 .form_div{
-    margin: 150px auto;
+    margin: 70px auto;
     width: 30%;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgb(255, 255, 255);
     padding: 30px;
     border-radius: 30px;
     box-shadow: 0px 0px 30px rgb(143, 143, 143);
@@ -272,7 +380,12 @@ nav{
 }
 
 .img-height{
-    height:60%
+    height:60%;   
+}
+
+.card-img-top{
+    height: 100%;
+    object-fit: cover;
 }
 
 .card-body{
@@ -313,6 +426,10 @@ select#post_status_id{
 
 .add-margin-bottom{
     margin-bottom: 15px;
+}
+
+.add-margin-top{
+    margin-top: 15px;
 }
 
 .userImg-in-post{
@@ -382,5 +499,13 @@ select#post_status_id{
 .submit-buttom{
     margin: 20px auto;
 }
+
+.profile-img-left{
+    margin-left: 0;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+
+
 
 

@@ -43,7 +43,7 @@
 
                  <li class="nav-item dropdown">
                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                   Account
+                   <%= @current_user.user_name %>'s Account
                    </a>
                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                      <li><%= link_to "Edit Posts", user_posts_path(@current_user.id), :class => "dropdown-item" %></li>

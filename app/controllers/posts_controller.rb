@@ -37,6 +37,7 @@ class PostsController < ApplicationController
             post.image = req["public_id"]
             post.save
         end
+        flash[:message] = "Thanks for your post 💌"
         redirect_to post
     end
 
@@ -52,6 +53,7 @@ class PostsController < ApplicationController
         end
         post.update_attributes(post_params)
         post.save
+        flash[:edit_message] = "Thanks for updating your post 📝"
         redirect_to post_path(post.id)
     end
 

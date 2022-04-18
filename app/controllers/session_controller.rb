@@ -6,6 +6,7 @@ class SessionController < ApplicationController
         user = User.find_by :email => params[:email]
         if user.present? && user.authenticate(params[:password])
           session[:user_id] = user.id
+          flash[:back]="Welcome back! Nice to see you again 🔆"
           redirect_to posts_path
         else
           redirect_to login_path

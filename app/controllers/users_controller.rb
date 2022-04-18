@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :check_for_admin, :only => [:index]
 
   def new
     @user = User.new
@@ -10,6 +9,7 @@ class UsersController < ApplicationController
     @user.image = "/assets/user.jpg" if @user.image.nil?
     if @user.save
       session[:user_id] = @user.id
+      flash[:welcome]="Thanks for your signing up. Enjoy your trip in HandsUp 🎈"
       redirect_to posts_path
     else
       render :new

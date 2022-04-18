@@ -1,8 +1,22 @@
 <div class="row content_main">
+
   <div class="col-6 col-md-6 scroll-div">
   
 <!-- show single post -->
     <div class="single_post">
+    <!-- show flash message of creating a post-->
+        <% flash.each do %>
+          <% if flash[:message] != nil%>
+          <%= content_tag :div, flash[:message], :class => "alert alert-success" %>
+          <% end %>
+        <% end %>
+    <!-- show flash message of editing a post--> 
+        <% flash.each do %>
+          <% if flash[:edit_message] != nil%>
+          <%= content_tag :div, flash[:edit_message], :class => "alert alert-warning" %>
+          <% end %>
+        <% end %>
+
         <div class ="row">
           <div class="col-3">
               <%= cl_image_tag @post.user.image, :class => "userImg-in-post"%>
@@ -10,7 +24,7 @@
               <% if @current_user == @post.user%>
               <div class="text-align-center">
               <%= link_to "Edit", edit_post_path(@post.id), :class =>"btn-sm btn-primary" %>
-              <%= link_to "Delete", @post ,:method => "delete", :class =>"btn-sm btn-danger"  %>
+              <%= link_to "Delete", @post ,:method => "delete", :class =>"btn-sm btn-danger", :data => { :confirm => 'Are you sure? 😢' }   %>
               </div>
               <% end  %>
           </div>
@@ -47,7 +61,26 @@
         <p hidden id="longitude"><%= @post.longitude %></p>
         
 <!-- show comments belong to this post -->
-        
+    <!-- show the flash massage of creating a message -->
+        <% flash.each do %>
+          <% if flash[:comment] != nil%>
+          <%= content_tag :div, flash[:comment], :class => "alert alert-success" %>
+          <% end %>
+        <% end %>
+    <!-- show the flash massage of editing a message -->
+        <% flash.each do %>
+          <% if flash[:edit_comment] != nil%>
+          <%= content_tag :div, flash[:edit_comment], :class => "alert alert-warning" %>
+          <% end %>
+        <% end %>
+
+    <!-- show the flash massage of deleting a message -->
+        <% flash.each do %>
+          <% if flash[:delete_comment] != nil%>
+          <%= content_tag :div, flash[:delete_comment], :class => "alert alert-danger" %>
+          <% end %>
+        <% end %>
+
         <% @post.comments.each do |comment| %>
           <div class ="row  single_comment">
             <div class="col-2 add-right-border">
@@ -60,7 +93,7 @@
               <% if @current_user.id == comment.user.id %>
               <div class="button-bottom">
                 <%= link_to "Edit", edit_comment_path(comment.id), :class =>"btn-sm btn-primary" %>
-                <%= link_to "Delete", comment ,:method => "delete", :class =>"btn-sm btn-danger"  %>
+                <%= link_to "Delete", comment ,:method => "delete", :class =>"btn-sm btn-danger", :data => { :confirm => 'Are you sure? 😢'}  %>
               </div>
               <% end %>
             </div>
@@ -68,7 +101,7 @@
         <% end %>
 
 <!-- leave comments form -->
-<%# if the case is closed, you can not add a new comment %>
+<!-- if the case is closed, you can not add a new comment -->
 
         <% if @post.status.completion != "Done"%>
 
@@ -77,7 +110,7 @@
           <%= form_for Comment.new do |f| %>
           <%= f.text_area :comment, :class => "form-control" %>
           <%= f.hidden_field :post_id, :value => @post.id %>
-          <%= f.submit "Add Your Comment",:class => "btn btn-outline-primary" %>      
+          <%= f.submit "Add Your Comment",:class => "btn btn-outline-primary add-margin-bottom add-margin-top" %>      
           <% end %>
         </div>
         <% end %>

@@ -28,9 +28,11 @@
       <% else %>
       <div class="row">
         <div class="col-4">
-          <%= cl_image_tag @user.image, :class => "profile-img" %>
+          <%= cl_image_tag @user.image, :class => "profile-img-left" %>
+          <div style="margin:0 auto">
           <h4>User Name: <%= @user.user_name %></h4>
           <h4>Total Posts: <%= @user.posts.count %></h4>
+          </div>
         </div>
         <div class="col-8">
           <% @user.posts.each do |post|%>

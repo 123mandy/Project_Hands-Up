@@ -1,3 +1,12 @@
+<div class="container-eyes">
+    <div class="eyeBall">
+      <div class="iris"></div>
+    </div>
+    <div class="eyeLid"></div>
+    <div class="lid"></div>
+</div>
+
+
 <div class="form_div">
   <div class ="form_content_div">
     <%=form_tag login_path %>
@@ -8,7 +17,17 @@
     <%= password_field_tag :password, nil, :class => "form-control" %>
     
 
-    <%= submit_tag "Log In", :class => "link_button no_margin" %>
+    <%= submit_tag "Log In", :class => "link_button" %>
     
   </div>
 </div>
+
+<script>
+  const eye = document.querySelector('.iris');
+  window.addEventListener('mousemove', (event) => {
+    const x = -(window.innerWidth / 2 - event.pageX) / 35;
+    const y = -(window.innerHeight / 2 - event.pageY) / 35;
+    eye.style.transform = `rotate(-45deg) translateY(${y}px) translateX(${x}px)`;         
+    }); 
+
+</script>

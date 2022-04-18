@@ -1,5 +1,17 @@
 <div class="content_main">
   <div class="row add-bottom-border">
+         <% flash.each do %>
+            <% if flash[:welcome] != nil%>
+            <%= content_tag :div, flash[:welcome], :class => "alert alert-secondary" %>
+            <% end %>
+         <% end %>
+
+         <% flash.each do %>
+            <% if flash[:back] != nil%>
+            <%= content_tag :div, flash[:back], :class => "alert alert-secondary" %>
+            <% end %>
+         <% end %>
+
       <div class="col-9">
 
        <%# filter function %>
