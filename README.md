@@ -22,8 +22,25 @@ You can also use google map to see the location of the task to help you make dec
 
 ## Screen Shot
 
-**GOOGLE MAP API** </br>
-![screen shots](app/assets/images/screen_shot_1.gif)
+**CUTE ANIMATION** </br>
+![screen shots](app/assets/images/screen_2.gif)
+
+---
+
+**GOOGLE MAP API EMBEDDED** </br>
+![screen shots](app/assets/images/screen_5.gif)
+
+---
+
+**CHANGE STATUS OF YOUR POST TO CLOSE COMMENTS** </br>
+![screen shots](app/assets/images/screen_1.gif)
+
+---
+
+**SEARCH YOUR FAVARITE TASKERS** </br>
+![screen shots](app/assets/images/screen_3.gif)
+
+---
 
 ## More to improve
 
