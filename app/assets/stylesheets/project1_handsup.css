@@ -447,8 +447,8 @@ select#post_status_id{
 
 .button-bottom{
    position: absolute;
-    bottom: 0;
-    right: 20px;
+   bottom: -15px;
+   right: 20px;
 }
 
 .user_name_top{
@@ -505,6 +505,7 @@ select#post_status_id{
     margin-bottom: 10px;
     border-radius: 20px;
 }
+
 
 
 

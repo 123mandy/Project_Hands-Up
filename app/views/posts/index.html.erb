@@ -62,9 +62,10 @@
             </div>
           </div>
 
+          <%= link_to "Explore details", post, :class => "btn btn-primary", 'data-no-turbolink' => true%>
+
            <%# Check if the task has been completed %>
 
-           <%= link_to "Explore details", post, :class => "btn btn-primary" %>
            <% if post.status.completion == "Done" %>
            <img src="/assets/completed.png" alt="" class="completed">
            <% end%>

@@ -8,6 +8,9 @@ A functional website building on **RUBY, RUBY ON RAILS, POSTGRESSQL, BOOTSTRAP, 
 Also use **Heroku and Cloudinary** to make sure everyone can enjoy this website.
 </br>
 
+Don't worry if you see `this page can't load google map properly`! It is because I didn't attach my billing details to the account that I created for a free google API ley!
+</br>
+
 Use this [link](https://handsup-2022.herokuapp.com/) to start your HandsUp journey!
 
 ## Brief
@@ -26,5 +29,19 @@ You can also use google map to see the location of the task to help you make dec
 
 1. Will add a assign button in Next version
 2. Will see how many people want to solve your problem in Next version
-3. You need a shift refresh to see the map
-4. Also need a shift refresh to see the eyes animation
+3. ~~You need a shift refresh to see the map in post page.~~
+   </br>
+   ***
+   Solving this problem by replacing `let` in javascript by `var`
+   </br>
+   Existing javascript
+   ```javascript
+   let latNum = parseFloat(document.getElementById("latitude").innerText);
+   let lngNum = parseFloat(document.getElementById("longitude").innerText);
+   ```
+   New javascript
+   ```javascript
+   var latNum = parseFloat(document.getElementById("latitude").innerText);
+   var lngNum = parseFloat(document.getElementById("longitude").innerText);
+   ```
+   ***

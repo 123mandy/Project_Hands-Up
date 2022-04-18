@@ -81,7 +81,7 @@
           <% end %>
         <% end %>
 
-        <% @post.comments.each do |comment| %>
+        <% @post.comments.reverse.each do |comment| %>
           <div class ="row  single_comment">
             <div class="col-2 add-right-border">
               <%= cl_image_tag comment.user.image, :class => "userImg-in-post"%>
@@ -123,15 +123,15 @@
       // google map javascript  
       // select latitude and longitude from HTML
 
-        let latNum=parseFloat(document.getElementById("latitude").innerText)
-        let lngNum=parseFloat(document.getElementById("longitude").innerText)
+        var latNum=parseFloat(document.getElementById("latitude").innerText)
+        var lngNum=parseFloat(document.getElementById("longitude").innerText)
         var locations = [
           ['Bondi Beach',latNum, lngNum, 4]
         ];
 
       //set google map 
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
+          zoom: 17,
           center: new google.maps.LatLng(latNum, lngNum),
           mapTypeId: google.maps.MapTypeId.ROADMAP
         });
@@ -146,6 +146,7 @@
             map: map
           });
         }
+      
       </script>
 
     </div>
