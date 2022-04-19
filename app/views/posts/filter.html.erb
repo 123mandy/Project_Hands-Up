@@ -13,7 +13,7 @@
   </div>
    <div class="col-4 col-md-4 scroll-div" >
       <div class="row">
-      <% @posts.each do |post| %>
+      <% @posts.reverse.each do |post| %>
       <%#  help javascript to select the infomation %>
        <p hidden id="lat"> <%= post.latitude %></p>
        <p hidden id="lng"> <%= post.longitude %></p>
