@@ -2,10 +2,9 @@
 
 ## Project 1-HandsUP
 
-A functional website building on **RUBY, RUBY ON RAILS, POSTGRESSQL, BOOTSTRAP, JAVASCRIPT and GOOGLE MAP API**
+In HandsUp, you can sign up your account and post what you want others to help. Every one can use comments to talk to each other. If someone solve your problem, you can easily turn the status of your post from "Seek help" to "Done", in this case, the comments function will also closed.
 </br>
-
-Also use **Heroku and Cloudinary** to make sure everyone can enjoy this website.
+You can also use google map to see the location of the task to help you make decisions. In addition, using search and filter function can help you find the tasks easily
 </br>
 
 Don't worry if you see `this page can't load google map properly`! It is because I didn't attach my billing details to the account that I created for a free google API key!
@@ -13,12 +12,24 @@ Don't worry if you see `this page can't load google map properly`! It is because
 
 Use this [link](https://handsup-2022.herokuapp.com/) to start your HandsUp journey!
 
-## Brief
+```
+User email: mandy@ga.co
+Password: 123123
+```
 
-In HandsUp, you can sign up your account and post what you want others to help. Every one can use comments to talk to each other. If someone solve your problem, you can easily turn the status of your post from "Seek help" to "Done", in this case, the comments function will also closed.
-</br>
+## Tech stack
 
-You can also use google map to see the location of the task to help you make decisions. In addition, using search and filter function can help you find the tasks easily
+What I used for this website:
+
+1. **Ruby**
+2. **Ruby on Rail**
+3. **Html**
+4. **Css**
+5. **Javascript**
+6. **GOOGLE map API**
+7. **Cloudinary** (for users uploading images)
+8. **Heroku** (cloud platform )
+9. **PostgresSQL**
 
 ## Screen Shot
 
